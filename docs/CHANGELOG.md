@@ -3,6 +3,10 @@
 ### 4.18.5 (2020/06/27)
 - Fix 403 error
 
+#### Known issues:
+- Proxy not supported
+- Old api for subtitles not supported
+
 ### 4.18.4 (2020/06/02)
 - Small fixes
 
