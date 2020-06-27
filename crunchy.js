@@ -1374,6 +1374,7 @@ async function getData(durl, params){
         }
         options.minVersion = 'TLSv1.3';
         options.maxVersion = 'TLSv1.3';
+        options.http2 = true;
     }
     // debug
     options.hooks = {
