@@ -66,6 +66,8 @@ let argv = yargs
     .help(false).version(false)
     // auth
     .describe('auth','Enter auth mode')
+    .describe('user','Username used for un-interactive authentication (Used with --auth)')
+    .describe('pass','Password used for un-interactive authentication (Used with --auth)')
     // fonts
     .describe('dlfonts','Download all required fonts for mkv muxing')
     // search
@@ -220,8 +222,8 @@ const usefulCookies = {
 // auth method
 async function doAuth(){
     console.log('[INFO] Authentication');
-    const iLogin = await shlp.question('[Q] LOGIN/EMAIL');
-    const iPsswd = await shlp.question('[Q] PASSWORD   ');
+    const iLogin = argv.user ? argv.user : await shlp.question('[Q] LOGIN/EMAIL');
+    const iPsswd = argv.pass ? argv.pass : await shlp.question('[Q] PASSWORD   ');
     const authData = new URLSearchParams({
         name: iLogin,
         password: iPsswd
