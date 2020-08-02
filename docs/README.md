@@ -33,6 +33,8 @@ After installing NodeJS with NPM go to directory with `package.json` file and ty
 ### Authentication
 
 * `--auth` enter auth mode
+* `--user <user>` skip the username dialog in auth mode (optional)
+* `--pass <pass>` skip the password dialog in auth mode (optional)
 
 ### Fonts
 
