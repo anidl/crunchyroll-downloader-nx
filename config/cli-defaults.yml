@@ -11,6 +11,7 @@ nServer: 1
 kStream: 1
 oldSubs: false
 dlSubs: all
+defsublang: enUS
 proxy: false
 proxy_auth: false
 proxy_ssp: false
