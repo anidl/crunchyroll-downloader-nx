@@ -108,7 +108,7 @@ let argv = yargs
 	// default subtitle language
     .describe('defsublang','Set default subitlte by language')
     .choices('defsublang',["enUS", "esLA", "esES", "frFR", "ptBR", "ptPT", "arME", "itIT", "deDE", "ruRU", "trTR"])
-    .default('defsublang', 'enUS')
+    .default('defsublang', (cfg.cli.defsublang || 'enUS'))
     // skip
     .describe('skipdl','Skip downloading video (for downloading subtitles only)')
     .boolean('skipdl')
