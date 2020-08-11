@@ -105,6 +105,10 @@ let argv = yargs
     .describe('dlsubs','Download subtitles by language tag')
     .choices('dlsubs', langsData.subsLangsFilter)
     .default('dlsubs', (cfg.cli.dlSubs || 'all'))
+	// default subtitle language
+    .describe('defsublang','Set default subitlte by language')
+    .choices('defsublang',["enUS", "esLA", "esES", "frFR", "ptBR", "ptPT", "arME", "itIT", "deDE", "ruRU", "trTR"])
+    .default('defsublang', 'enUS')
     // skip
     .describe('skipdl','Skip downloading video (for downloading subtitles only)')
     .boolean('skipdl')
@@ -1182,6 +1186,10 @@ async function muxStreams(){
                 let subsFile = path.join(cfg.dir.content, t.file);
                 mkvmux.push('--track-name',`0:${t.langStr} / ${t.title}`);
                 mkvmux.push('--language',`0:${t.langCode}`);
+				if(t.langExtCode == argv.defsublang) {
+					console.log(`[INFO] Set default subtitle to: ${t.langStr} / ${t.title}`);
+					mkvmux.push('--forced-track','0:yes','--default-track','0:yes');
+				}
                 mkvmux.push(`${subsFile}`);
             }
         }
