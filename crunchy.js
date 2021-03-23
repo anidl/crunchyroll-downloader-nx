@@ -62,7 +62,7 @@ let audDubT  = '',
 
 // api domains
 const domain    = 'https://www.crunchyroll.com';
-const apidomain = 'https://api.crunchyroll.com';
+const apidomain = 'https://api.crunchyroll.com';'beta-api.crunchyroll.com'
 
 // api script urls
 const api = {
