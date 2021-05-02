@@ -22,7 +22,7 @@ async function doBuild(nodeVer){
     const buildType = process.argv[2];
     if(!acceptableBuilds.includes(buildType)){
         console.error('[ERROR] unknown build type!');
-        process.exit();
+        process.exit(1);
     }
     await modulesCleanup('.');
     if(!fs.existsSync(buildsDir)){
@@ -47,7 +47,7 @@ async function doBuild(nodeVer){
         if(nodeVer == ''){
             await doBuild(curNodeVer);
         }
-        process.exit();
+        process.exit(1);
     }
     fs.mkdirSync(`${buildDir}/bin`);
     fs.mkdirSync(`${buildDir}/config`);
